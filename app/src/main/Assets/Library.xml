@@ -1,0 +1,162 @@
+<LIBRARY>
+    <BOOK id="1">
+        <TITLE>Empire Burlesque</TITLE>
+        <AUTHOR>Bob Dylan</AUTHOR>
+        <GENRE>Indie</GENRE>
+        <RATING>5</RATING>
+        <IMG>empireburlesque.png</IMG>
+        <POSITION>15</POSITION>
+    </BOOK>
+    <BOOK id="2">
+        <TITLE>Hide your heart</TITLE>
+        <AUTHOR>Bonnie Tyler</AUTHOR>
+        <GENRE>Punk</GENRE>
+        <RATING>5</RATING>
+        <IMG>hideyourheart.png</IMG>
+        <POSITION>31</POSITION>
+    </BOOK>
+    <BOOK id="3">
+        <TITLE>Greatest Hits</TITLE>
+        <AUTHOR>Dolly Parton</AUTHOR>
+        <GENRE>Country</GENRE>
+        <RATING>4</RATING>
+        <IMG>greatesthits.png</IMG>
+        <POSITION>56</POSITION>
+    </BOOK>
+    <BOOK id="3">
+        <TITLE>Still got the blues</TITLE>
+        <AUTHOR>Gary Moore</AUTHOR>
+        <GENRE>Blues</GENRE>
+        <RATING>1</RATING>
+        <IMG>stillgottheblues.png</IMG>
+        <POSITION>86</POSITION>
+    </BOOK>
+    <BOOK id="5">
+        <TITLE>Eros</TITLE>
+        <AUTHOR>Eros Ramazzotti</AUTHOR>
+        <GENRE>Gospel</GENRE>
+        <RATING>3</RATING>
+        <IMG>eros.png</IMG>
+        <POSITION>105</POSITION>
+    </BOOK>
+    <BOOK id="6">
+        <TITLE>One night only</TITLE>
+        <AUTHOR>Bee Gees</AUTHOR>
+        <GENRE>Soul</GENRE>
+        <RATING>1</RATING>
+        <IMG>onenightonly.png</IMG>
+        <POSITION>130</POSITION>
+    </BOOK>
+    <BOOK id="7">
+        <TITLE>Sylvias Mother</TITLE>
+        <AUTHOR>Dr.Hook</AUTHOR>
+        <GENRE>RnB</GENRE>
+        <RATING>3</RATING>
+        <IMG>sylviasmother.png</IMG>
+        <POSITION>158</POSITION>
+    </BOOK>
+    <BOOK id="8">
+        <TITLE>Maggie May</TITLE>
+        <AUTHOR>Rod Stewart</AUTHOR>
+        <GENRE>Pop</GENRE>
+        <RATING>2</RATING>
+        <IMG>maggiemay.png</IMG>
+        <POSITION>180</POSITION>
+    </BOOK>
+    <BOOK id="9">
+        <TITLE>Romanza</TITLE>
+        <AUTHOR>Andrea Bocelli</AUTHOR>
+        <GENRE>HipHop</GENRE>
+        <RATING>1</RATING>
+        <IMG>romanza.png</IMG>
+        <POSITION>201</POSITION>
+    </BOOK>
+    <BOOK id="10">
+        <TITLE>When a man loves a woman</TITLE>
+        <AUTHOR>Percy Sledge</AUTHOR>
+        <GENRE>Classical</GENRE>
+        <RATING>5</RATING>
+        <IMG>whenamanlovesawoman.png</IMG>
+        <POSITION>230</POSITION>
+    </BOOK>
+    <BOOK id="11">
+        <TITLE>Black angel</TITLE>
+        <AUTHOR>Savage Rose</AUTHOR>
+        <GENRE>Rock</GENRE>
+        <RATING>5</RATING>
+        <IMG>blackangel.png</IMG>
+        <POSITION>260</POSITION>
+    </BOOK>
+    <BOOK id="12">
+        <TITLE>Grammy Nominees</TITLE>
+        <AUTHOR>Many</AUTHOR>
+        <GENRE>Grime</GENRE>
+        <RATING>2</RATING>
+        <IMG>grammynominees.png</IMG>
+        <POSITION>290</POSITION>
+    </BOOK>
+    <BOOK id="13">
+        <TITLE>For the good times</TITLE>
+        <AUTHOR>Kenny Rogers</AUTHOR>
+        <GENRE>Ragae</GENRE>
+        <RATING>1</RATING>
+        <IMG>forthegoodtimes.png</IMG>
+        <POSITION>320</POSITION>
+    </BOOK>
+    <BOOK id="14">
+        <TITLE>Big Willie style</TITLE>
+        <AUTHOR>Will Smith</AUTHOR>
+        <GENRE>Jazz</GENRE>
+        <RATING>3</RATING>
+        <IMG>bigwilliestyle</IMG>
+        <POSITION>340</POSITION>
+    </BOOK>
+    <BOOK id="15">
+        <TITLE>Tupelo Honey</TITLE>
+        <AUTHOR>Van Morrison</AUTHOR>
+        <GENRE>Metal</GENRE>
+        <RATING>4</RATING>
+        <IMG>tupelohoney.png</IMG>
+        <POSITION>360</POSITION>
+    </BOOK>
+    <BOOK id="16">
+        <TITLE>Soulsville</TITLE>
+        <AUTHOR>Jorn Hoel</AUTHOR>
+        <GENRE>Rap</GENRE>
+        <RATING>5</RATING>
+        <IMG>soulsville.png</IMG>
+        <POSITION>380</POSITION>
+    </BOOK>
+    <BOOK id="17">
+        <TITLE>The very best of</TITLE>
+        <AUTHOR>Cat Stevens</AUTHOR>
+        <GENRE>Garage</GENRE>
+        <RATING>3</RATING>
+        <IMG>theverybestof.png</IMG>
+        <POSITION>410</POSITION>
+    </BOOK>
+    <BOOK id="18">
+        <TITLE>Stop</TITLE>
+        <AUTHOR>Sam Brown</AUTHOR>
+        <GENRE>House</GENRE>
+        <RATING>5</RATING>
+        <IMG>stop.png</IMG>
+        <POSITION>430</POSITION>
+    </BOOK>
+    <BOOK id="19">
+        <TITLE>Bridge of Spies</TITLE>
+        <AUTHOR>T'Pau</AUTHOR>
+        <GENRE>Dance</GENRE>
+        <RATING>5</RATING>
+        <IMG>bridgeofspies.png</IMG>
+        <POSITION>460</POSITION>
+    </BOOK>
+    <BOOK id="20">
+        <TITLE>Private Dancer</TITLE>
+        <AUTHOR>Tina Turner</AUTHOR>
+        <GENRE>EDM</GENRE>
+        <RATING>3</RATING>
+        <IMG>privatedancer.png</IMG>
+        <POSITION>480</POSITION>
+    </BOOK>
+</LIBRARY>

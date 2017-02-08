@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:andriod="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/textView9"
+                android:textAlignment="center"
+                android:textStyle="italic"
+                android:singleLine="false"
+                android:text="@string/descriptionText" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RadioGroup
+                    android:id ="@+id/SuggestOrReserve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radioSuggest"
+                    android:id="@+id/Suggest"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:checked="false" />
+
+                    <RadioButton
+                        android:layout_width="190dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/radioReserve"
+                        android:id="@+id/Reserve"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:checked="false" />
+
+                </RadioGroup>
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/EditTextFullName"
+                android:layout_height="wrap_content"
+                android:hint="@string/FullNameHint"
+                android:inputType="textPersonName"
+                android:layout_width="fill_parent">
+            </EditText>
+            <Spinner
+                android:id="@+id/SpinnerYear"
+                android:layout_height="wrap_content"
+                android:prompt="@string/year"
+                android:layout_width="fill_parent"
+                android:entries="@array/yearlist">
+            </Spinner>
+            <EditText
+                android:id="@+id/EditTextTitle"
+                android:layout_height="wrap_content"
+                android:hint="@string/TitleHint"
+                android:inputType="text"
+                android:layout_width="fill_parent">
+            </EditText>
+            <EditText
+                android:id="@+id/EditTextAuthor"
+                android:layout_height="wrap_content"
+                android:hint="@string/AuthorNameHint"
+                android:inputType="textPersonName"
+                android:layout_width="fill_parent">
+            </EditText>
+            <EditText
+                android:id="@+id/EditTextNotes"
+                android:layout_height="wrap_content"
+                android:hint="@string/NotesHint"
+                android:inputType="textMultiLine"
+                android:lines="5"
+                android:layout_width="fill_parent">
+            </EditText>
+            <Button
+                android:id="@+id/ButtonSendEnquiry"
+                android:layout_height="wrap_content"
+                android:text="@string/ButtonSendEnquiry"
+                android:onClick="sendenquiry"
+                android:layout_width="fill_parent"
+                android:layout_gravity="bottom">
+            </Button>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

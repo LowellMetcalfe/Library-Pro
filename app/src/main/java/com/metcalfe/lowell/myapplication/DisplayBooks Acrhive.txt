@@ -1,0 +1,195 @@
+package com.example.brett.lowellmetcalfe;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import java.io.InputStream;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+public class DisplayBooks extends AppCompatActivity {
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        final TextView textViewTitle = (TextView) findViewById(R.id.Title);
+        final TextView textViewAuthor = (TextView) findViewById(R.id.Author);
+        final TextView textViewGenre = (TextView) findViewById(R.id.Genre);
+        final RatingBar rating = (RatingBar) findViewById(R.id.ratingBar);
+        final TextView textViewDescription = (TextView) findViewById(R.id.textViewDescription);
+        final ImageView coverImg = (ImageView) findViewById(R.id.imageView);
+        final ImageButton imageButton1 = (ImageButton) findViewById(R.id.imageButton1);
+        final ImageButton imageButton2 = (ImageButton) findViewById(R.id.imageButton2);
+        final ImageButton imageButton3 = (ImageButton) findViewById(R.id.imageButton3);
+        final ImageButton imageButton4 = (ImageButton) findViewById(R.id.imageButton4);
+        final Button FindButton = (Button) findViewById(R.id.button);
+
+        //could use a linked list here
+        String[][] books = new String[20][7];
+        String[][] suggested = new String[20][2];
+        //sets up a 2d array that can hold all the book data
+        books[0][0] = "ID";
+        books[0][1] = "Title";
+        books[0][2] = "Author";
+        books[0][3] = "Genre";
+        books[0][4] = "Rating";
+        books[0][5] = "IMG";
+
+        try {
+            //finds location of the XML file, research how to 'stream'
+            InputStream fXmlFile = getAssets().open("Library.xml");
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            //xml error is here
+            Document doc = dBuilder.parse(fXmlFile);
+
+            doc.getDocumentElement().normalize();
+
+            System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+
+            NodeList nList = doc.getElementsByTagName("BOOK");
+
+            System.out.println("----------------------------");
+//maybe make <=
+            for (int temp = 0; temp < books.length; temp++) {
+                Node nNode = nList.item(temp);
+                //System.out.println("\nCurrent Element :" + nNode.getNodeName());
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+                    Element eElement = (Element) nNode;
+                    //might have to make it check the data from the xml and save it in order
+                    books[temp][0] = eElement.getAttribute("id");
+                    books[temp][1] = eElement.getElementsByTagName("TITLE").item(0).getTextContent();
+                    books[temp][2] = eElement.getElementsByTagName("AUTHOR").item(0).getTextContent();
+                    books[temp][3] = eElement.getElementsByTagName("GENRE").item(0).getTextContent();
+                    books[temp][4] = eElement.getElementsByTagName("RATING").item(0).getTextContent();
+                    books[temp][5] = eElement.getElementsByTagName("IMG").item(0).getTextContent();
+                    books[temp][6] = eElement.getElementsByTagName("POSITION").item(0).getTextContent();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        BubbleSort(books);
+        //for loop bellow checks if the sorting worked
+        //for(int tester = 0; tester < 20; tester++){
+        // 	System.out.println(books[tester][0]);
+        //}
+
+        //write in for the line bellow to read from active camera instead of a saved image
+        //merge two bellow into one line
+        long ISBN = 3;
+        //System.out.println(ISBN);
+        //DisplayNoBinary(books, ISBN);
+        int Left = 0;
+        int Right = books.length;
+        int Middle = 0;
+        boolean ItemFound = false;
+        while (Left <= Right && ItemFound == false) {
+            Middle = Math.round((Left + Right) / 2);
+            //System.out.println(books[Middle][0]);
+            long MiddleVal = Long.parseLong(books[Middle][0]);
+            if (MiddleVal == ISBN) {
+                ItemFound = true;
+                System.out.println("ISBN: " + books[Middle][0]);
+                textViewTitle.setText(books[Middle][1]);
+                textViewAuthor.setText(books[Middle][2]);
+                textViewGenre.setText(books[Middle][3]);
+                //rating.setRating(books[Middle][4]);
+                //coverImg.setImageDrawable(Drawable books[Middle][5]);
+
+            }
+            //middle is greater than ISBN
+            if (MiddleVal > ISBN) {
+                Right = Middle - 1;
+            }
+            //middle is less than ISBN
+            if (MiddleVal < ISBN) {
+                Left = Middle + 1;
+            }
+        }
+
+        Position(books, Middle);
+
+        FindButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Start your second activity
+                Intent intent = new Intent(DisplayBooks.this, FindBook.class);
+                startActivity(intent);
+            }
+        });
+
+        suggestedBooks(books, Middle, suggested);
+        //imageButton1.setBackgroundResource(R.);
+        //write in the use of the img
+        // in suggested and the onclick listener
+
+    }
+
+
+    public String Position(String[][] books, int Middle) {
+        String position = books[Middle][6];
+        return position;
+    }
+
+    //currently a simple XML
+    public String[][] suggestedBooks(String[][] books, int Middle, String[][] suggested) {
+        String Genre = books[Middle][3];
+        for (int i = 0; (i < 20) && (suggested[3][0].isEmpty()); i++) {
+            if (Genre == books[i][3]) {
+                //0 is ISBN, 1 is the img and 2 is the rating
+                suggested[i][0] = books[i][0];
+                suggested[i][1] = books[i][5];
+                suggested[i][2] = books[i][4];
+            }
+        }
+        int n = suggested.length;
+        String temp;
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < (n - i); j++) {
+                //sign switch makes it descening instead of ascending
+                if (Long.parseLong(suggested[j - 1][2]) < Long.parseLong(suggested[j][2])) {
+                    //swap the elements!
+                    temp = suggested[j - 1][2];
+                    suggested[j - 1][2] = suggested[j][2];
+                    suggested[j][2] = temp;
+                }
+            }
+        }
+
+        return suggested;
+    }
+
+    public String[][] BubbleSort(String[][] books) {
+        //try switching parts too ints by making a seperate variable
+        int n = books.length;
+        String temp = "0";
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < (n - i); j++) {
+                if (Integer.parseInt(books[j - 1][0]) > Integer.parseInt(books[j][0])) {
+                    //swap the elements!
+                    temp = books[j - 1][0];
+                    books[j - 1][0] = books[j][0];
+                    books[j][0] = temp;
+                }
+            }
+        }
+        return books;
+    }
+}
